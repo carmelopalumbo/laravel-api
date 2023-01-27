@@ -31,6 +31,8 @@ export default {
 <style lang="scss" scoped>
 @import '../../scss/partials/vars.scss';
 
+.container{
+    border-bottom: 2px solid $mark-text;
     img{
     width: 200px;
     }
@@ -46,8 +48,26 @@ export default {
                 font-weight: bold;
                 font-size: 1.2rem;
                 color: $mark-text;
+                transition: .3s all;
+                border-radius: 5px;
+                &:hover{
+                    background-color: $mark-text;
+                    color: white;
+                    padding: 7px 9px;
+                }
             }
         }
     }
+
+    .active{
+        color: white;
+        -webkit-text-stroke: 1.5px $mark-text;
+        &:hover{
+            padding: 0;
+            background-color: transparent;
+        }
+    }
+}
+
 
 </style>
