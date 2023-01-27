@@ -1,14 +1,20 @@
 <script>
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+
 export default {
-    name: "App"
+    name: "App",
+    components:{
+        Header,
+        Footer
+    }
 }
 </script>
 
 <template>
-    <div class="container pt-5">
-        <h1>TEST VUE INTO LARAVEL</h1>
-    </div>
+    <Header />
     <router-view></router-view>
+    <Footer />
 </template>
 
 <style>
