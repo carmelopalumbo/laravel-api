@@ -13,6 +13,7 @@ export default {
         <div class="cp-card">
             <h3>{{ project.name }}</h3>
             <p>{{ project.client_name }}</p>
+            <img :src="project.cover_image" alt="">
         </div>
     </router-link>
 
@@ -48,4 +49,9 @@ a{
 }
 }
 
+img{
+    width: 260px;
+    height: 230px;
+    object-fit: cover;
+}
 </style>

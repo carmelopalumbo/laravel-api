@@ -40,5 +40,4 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../scss/partials/vars.scss';
-
 </style>
