@@ -9,12 +9,12 @@ export default {
 </script>
 
 <template>
-    <a href="">
+    <router-link :to="{name: 'details', params:{slug: project.slug} }">
         <div class="cp-card">
             <h3>{{ project.name }}</h3>
             <p>{{ project.client_name }}</p>
         </div>
-    </a>
+    </router-link>
 
 </template>
 
