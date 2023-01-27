@@ -31,8 +31,9 @@ export default {
       .then(result => {
         //console.log(result.data);
         this.projects = result.data.projects.data;
-        this.pagination.currentPage = result.data.projects.current_page,
-        this.pagination.lastPage = result.data.projects.last_page
+        this.pagination.currentPage = result.data.projects.current_page;
+        this.pagination.lastPage = result.data.projects.last_page;
+        console.log(this.projects);
       })
     }
   },

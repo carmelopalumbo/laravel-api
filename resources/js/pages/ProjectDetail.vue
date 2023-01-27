@@ -34,6 +34,7 @@ export default {
     <div>
         <span v-for="item in project.technologies" :key="item.id">{{ item.name }}</span>
     </div>
+    <img :src="project.cover_image" :alt="project.name">
     <p>{{ project.summary }}</p>
 </div>
 </template>

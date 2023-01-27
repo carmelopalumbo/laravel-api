@@ -10,10 +10,10 @@ export default {
 
 <template>
     <router-link :to="{name: 'details', params:{slug: project.slug} }">
-        <div class="cp-card">
+        <div class="cp-card d-flex flex-column align-items-center">
             <h3>{{ project.name }}</h3>
             <p>{{ project.client_name }}</p>
-            <img :src="project.cover_image" alt="">
+            <img :src="project.cover_image" :alt="project.slug">
         </div>
     </router-link>
 
@@ -50,8 +50,8 @@ a{
 }
 
 img{
-    width: 260px;
-    height: 230px;
-    object-fit: cover;
+    width: 200px;
+    border: 2px solid transparent;
+    border-radius: 5px;
 }
 </style>

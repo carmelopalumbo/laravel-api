@@ -13,6 +13,15 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::with(['type', 'technologies'])->paginate(6);
+
+        foreach ($projects as $project) {
+            if ($project->cover_image) {
+                $project->cover_image = url("storage/" . $project->cover_image);
+            } else {
+                $project->cover_image = url("storage/uploads/noimage.jpeg");
+            }
+        }
+
         return response()->json(compact('projects'));
     }
 
@@ -22,9 +31,9 @@ class ProjectController extends Controller
 
         //controllo su image
         if ($project->cover_image) {
-            $project->cover_image = url('storage/' . $project->cover_image);
+            $project->cover_image = url("storage/" . $project->cover_image);
         } else {
-            $project->cover_image = url('storage/uploads/noimage.jpeg');
+            $project->cover_image = url("storage/uploads/noimage.jpeg");
         }
 
         return response()->json($project);
