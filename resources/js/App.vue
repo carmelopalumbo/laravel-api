@@ -8,7 +8,7 @@ export default {
     <div class="container pt-5">
         <h1>TEST VUE INTO LARAVEL</h1>
     </div>
-
+    <router-view></router-view>
 </template>
 
 <style>
