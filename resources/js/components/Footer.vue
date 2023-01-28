@@ -23,7 +23,12 @@ export default {
     }
     a{
         text-decoration: none;
-        color: white;
+        color: grey;
+        font-size: .8rem;
+        transition: .2s all;
+        &:hover{
+            color: lighten(grey, 15%);
+        }
     }
 }
 

@@ -53,9 +53,9 @@ export default {
     </div>
     <div class="d-flex justify-content-center py-5">
       <button :disabled="pagination.currentPage === 1" @click="getApi(1)" class="btn-symbol">&leftarrowtail;</button>
-      <button :disabled="pagination.currentPage === 1" @click="getApi(--pagination.currentPage)" class="btn-number"> &leftarrow; </button>
+      <button :disabled="pagination.currentPage === 1" @click="getApi(--pagination.currentPage)" class="btn-symbol"> &leftarrow; </button>
       <button :disabled="pagination.currentPage === item" @click="getApi(item)" class="mx-2 btn btn-number" v-for="item in pagination.lastPage" :key="item">{{ item }}</button>
-      <button :disabled="pagination.currentPage === pagination.lastPage" @click="getApi(++pagination.currentPage)" class="btn-number">&rightarrow;</button>
+      <button :disabled="pagination.currentPage === pagination.lastPage" @click="getApi(++pagination.currentPage)" class="btn-symbol">&rightarrow;</button>
       <button :disabled="pagination.currentPage === pagination.lastPage" @click="getApi(pagination.lastPage)" class="btn-symbol">&rightarrowtail;</button>
     </div>
   </div>
@@ -80,5 +80,8 @@ export default {
 .btn-symbol{
     background-color: $mark-text;
     margin: 0 10px;
+    &:disabled{
+        opacity: .5;
+    }
 }
 </style>

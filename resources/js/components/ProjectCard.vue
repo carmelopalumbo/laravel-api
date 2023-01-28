@@ -54,14 +54,4 @@ img{
     border: 2px solid transparent;
     border-radius: 5px;
 }
-
-.type{
-    background-color: darken($mark-text, 15%);
-    padding: 3px 12px;
-    font-style: italic;
-    font-weight: lighter;
-    border-radius: 15px;
-    font-size: .8rem;
-    margin: 10px 0;
-}
 </style>

@@ -7,3 +7,21 @@ body{
     background-color: $background;
     color: white;
 }
+
+.type{
+    background-color: darken($mark-text, 15%);
+    padding: 3px 12px;
+    font-style: italic;
+    font-weight: lighter;
+    border-radius: 15px;
+    font-size: .8rem;
+    margin: 10px 0;
+}
+
+.technologies{
+    font-weight: 600;
+    font-style: italic;
+    background-color: rgb(45, 45, 153);
+    padding: 3px 10px;
+    border-radius: 5px;
+}
