@@ -12,7 +12,7 @@ export default {
     },
     methods: {
         getapi(){
-            console.log(this.apiUrl + 'detail/' + this.$route.params.slug);
+            //console.log(this.apiUrl + 'detail/' + this.$route.params.slug);
             axios.get(this.apiUrl + 'detail/' + this.$route.params.slug)
             .then(result => {
                 //console.log(this.$route.params.slug)

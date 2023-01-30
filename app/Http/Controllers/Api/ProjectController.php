@@ -14,15 +14,11 @@ class ProjectController extends Controller
     {
         $projects = Project::with(['type', 'technologies'])->paginate(6);
 
-        foreach ($projects as $project) {
-            if ($project->cover_image) {
-                $project->cover_image = url("storage/" . $project->cover_image);
-            } else {
-                $project->cover_image = url("storage/uploads/noimage.jpeg");
-            }
-        }
+        $this->checkImage($projects);
 
-        return response()->json(compact('projects'));
+        $types = Type::all();
+
+        return response()->json(compact('projects', 'types'));
     }
 
     public function show($slug)
@@ -45,6 +41,23 @@ class ProjectController extends Controller
 
         $projects = Project::where('name', 'like', "%$string%")->with(['type', 'technologies'])->get();
 
+        $this->checkImage($projects);
+
+        return response()->json(compact('projects'));
+    }
+
+    public function typeSearch()
+    {
+        $typeid = $_GET['type_id'];
+        $projects = Project::where('type_id', $typeid)->with(['type', 'technologies'])->get();
+
+        $this->checkImage($projects);
+
+        return response()->json(compact('projects'));
+    }
+
+    private function checkImage($projects)
+    {
         foreach ($projects as $project) {
             if ($project->cover_image) {
                 $project->cover_image = url("storage/" . $project->cover_image);
@@ -52,7 +65,5 @@ class ProjectController extends Controller
                 $project->cover_image = url("storage/uploads/noimage.jpeg");
             }
         }
-
-        return response()->json(compact('projects'));
     }
 }

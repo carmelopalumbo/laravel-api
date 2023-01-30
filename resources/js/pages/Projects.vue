@@ -35,6 +35,8 @@ export default {
         this.pagination.currentPage = result.data.projects.current_page;
         this.pagination.lastPage = result.data.projects.last_page;
         store.showPaginate = true;
+        store.types = result.data.types;
+        //console.log(store.types);
       })
     }
   },
@@ -47,7 +49,7 @@ export default {
 
 <template>
 
-    <SearchForm />
+    <SearchForm @getprojects="getApi(1)"/>
 
   <div class="container pt-3">
     <div class="row">
