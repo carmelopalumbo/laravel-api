@@ -32,9 +32,11 @@ export default {
 </script>
 
 <template>
-   <div class="dark-box">
-        <input class="container_toggle" type="checkbox" id="switch" name="mode">
-        <label for="switch">Toggle</label>
+   <div class="dark-box d-flex">
+       <i class="fa-solid fa-moon mx-3"></i>
+       <input class="container_toggle" type="checkbox" id="switch" name="mode">
+       <label for="switch">Toggle</label>
+       <i class="fa-regular fa-lightbulb mx-3"></i>
     </div>
 </template>
 
@@ -42,21 +44,24 @@ export default {
 @import '../../scss/partials/vars.scss';
 
 .dark-box{
-    position: relative;
-    bottom: 28px;
+    i{
+      font-size: 1.6rem;
+      color: goldenrod;
+      -webkit-text-stroke: 1px $background;
+    }
 }
-body[data-theme='dark'] {
+body[data-theme='light'] {
    background: $background;
-  --lightBg: #232323;
+  --lightBtn: #1DB954;
   --lightColor: #fff;
   input:checked + label {
   background: $mark-text;
     }
 }
 
-body[data-theme='light'] {
-   background: white;
-  --lightBtn: #202124;
+body[data-theme='dark'] {
+   background: whitesmoke;
+   --lightBtn: #1DB954;
   --lightBg: white;
   color: $background;
   h3{
@@ -98,7 +103,7 @@ label {
 
 label:after {
   content: '';
-  background: #fff;
+  background: whitesmoke;
   width: 20px;
   height: 20px;
   -webkit-border-radius: 50%;

@@ -5,9 +5,9 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <div class="row d-flex justify-content-center py-3">
-            <img src="../../image/publiclogo.png" alt="">
+    <div class="container animate__animated animate__bounce">
+        <div class="row d-flex justify-content-center py-4">
+            <img src="../../image/publiclogo.png" alt="mylogo">
         </div>
 
         <div class="row">
@@ -55,6 +55,7 @@ export default {
                     background-color: $mark-text;
                     color: white;
                     padding: 7px 9px;
+                    -webkit-text-stroke: 1px $background;
                 }
             }
         }
@@ -66,6 +67,7 @@ export default {
         &:hover{
             padding: 0;
             background-color: transparent;
+            -webkit-text-stroke: 1.5px $mark-text;
         }
     }
 }

@@ -27,7 +27,8 @@ export default {
             })
         },
         getTypeSearchApi(id){
-            console.log(store.apiUrl + '/typesearch');
+            store.isActive = id;
+            //console.log(store.apiUrl + '/typesearch');
             axios.get(store.apiUrl + '/typesearch', {
                 params: {
                     type_id: id
@@ -51,9 +52,11 @@ export default {
             <button @click="getSearchApi"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
-        <div>
+        <div class="typebox">
             <span @click="$emit('getprojects')" class="type fw-bold mx-3">Tutti i progetti</span>
-            <span @click="getTypeSearchApi(item.id)" class="type mx-3 fw-bold" v-for="item in store.types" :key="item.id">{{ item.name }}</span>
+            <span @click="getTypeSearchApi(item.id)" class="type mx-3 fw-bold"
+            :class="{ 'active' : store.isActive === item.id }"
+            v-for="item in store.types" :key="item.id">{{ item.name }}</span>
         </div>
     </div>
 </template>
@@ -92,6 +95,20 @@ export default {
             font-size: 1.2rem;
             font-style: italic;
             margin: 0 8px;
+        }
+    }
+
+    .typebox{
+
+        span{
+            transition: .3s all;
+            -webkit-text-stroke: .5px $background;
+            &:hover{
+                background-color: lighten($mark-text, 5%);
+            }
+        }
+        .active{
+            box-shadow: 0px 1px 14px 6px white;
         }
     }
 </style>

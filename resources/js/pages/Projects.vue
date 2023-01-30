@@ -31,6 +31,7 @@ export default {
       })
       .then(result => {
         //console.log(result.data);
+        store.isActive = null;
         store.projects = result.data.projects.data;
         this.pagination.currentPage = result.data.projects.current_page;
         this.pagination.lastPage = result.data.projects.last_page;
@@ -51,7 +52,7 @@ export default {
 
     <SearchForm @getprojects="getApi(1)"/>
 
-  <div class="container pt-3">
+  <div class="container pt-3 animate__animated animate__backInLeft">
     <div class="row">
       <div class="col-4" v-for="project in store.projects" :key="project.id">
         <ProjectCard :project="project"/>

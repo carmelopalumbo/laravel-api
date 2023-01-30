@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-    <div class="container d-flex justify-content-between">
+    <div class="container d-flex justify-content-between animate__animated animate__bounce">
         <p class="ms-5">Carmelo Palumbo | 2023 © All rights reserved.</p>
         <DarkMode />
         <a class="me-5" href="http://127.0.0.1:8000/admin">ADMIN AREA</a>

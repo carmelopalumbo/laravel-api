@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-<div class="container text-center py-5">
+<div class="container text-center py-5 animate__animated animate__rubberBand">
     <div class="row">
         <div class="col-5">
             <img :src="project.cover_image" :alt="project.name">
