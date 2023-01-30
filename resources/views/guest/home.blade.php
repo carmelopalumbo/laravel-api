@@ -20,7 +20,7 @@
     @vite(['resources/js/appVue.js', 'resources/scss/appVue.scss'])
 </head>
 
-<body>
+<body id="lightdark">
     <div id="app"></div>
 </body>
 

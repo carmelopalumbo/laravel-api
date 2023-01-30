@@ -39,7 +39,7 @@ export default {
         <div class="py-3">
             <span class="technologies mx-2" v-for="item in project.technologies" :key="item.id">{{ item.name }}</span>
         </div>
-            <span class="fw-light">CLIENTE &nbsp; | </span> <strong class="ps-2 fst-italic">{{ project.client_name }}</strong>
+            <span class="fw-light client">CLIENTE &nbsp; | </span> <strong class="ps-2 fst-italic">{{ project.client_name }}</strong>
             <p class="pt-3">{{ project.summary }}</p>
         </div>
     </div>

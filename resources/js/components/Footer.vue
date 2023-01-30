@@ -1,12 +1,17 @@
 <script>
+import DarkMode from './DarkMode.vue';
 export default {
-    name: "Footer"
+    name: "Footer",
+    components:{
+        DarkMode
+    }
 }
 </script>
 
 <template>
     <div class="container d-flex justify-content-between">
         <p class="ms-5">Carmelo Palumbo | 2023 © All rights reserved.</p>
+        <DarkMode />
         <a class="me-5" href="http://127.0.0.1:8000/admin">ADMIN AREA</a>
     </div>
 </template>

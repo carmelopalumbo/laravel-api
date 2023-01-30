@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: "Header"
+    name: "Header",
 }
 </script>
 
@@ -9,6 +9,7 @@ export default {
         <div class="row d-flex justify-content-center py-3">
             <img src="../../image/publiclogo.png" alt="">
         </div>
+
         <div class="row">
             <ul class="py-4">
                 <li>

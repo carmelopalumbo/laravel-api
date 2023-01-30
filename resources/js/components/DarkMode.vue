@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-   <div class="container">
+   <div class="dark-box">
         <input class="container_toggle" type="checkbox" id="switch" name="mode">
         <label for="switch">Toggle</label>
     </div>
@@ -41,23 +41,36 @@ export default {
 <style lang="scss">
 @import '../../scss/partials/vars.scss';
 
+.dark-box{
+    position: relative;
+    bottom: 28px;
+}
 body[data-theme='dark'] {
-   background: var(--lightBg);
-  --lightBtn: #FFBD07;
+   background: $background;
   --lightBg: #232323;
   --lightColor: #fff;
+  input:checked + label {
+  background: $mark-text;
+    }
 }
 
 body[data-theme='light'] {
-   background: var(--lightBg);
-  --lightBtn: #FFBD07;
+   background: white;
+  --lightBtn: #202124;
   --lightBg: white;
-  color: black;
+  color: $background;
   h3{
-     color: black;
+     color: $background;
   }
   .btn-number{
-    color: black;
+    color: $background;
+  }
+  span{
+    color: white;
+  }
+
+  .client{
+     color: $background;
   }
 }
 
@@ -95,10 +108,6 @@ label:after {
   top: 5px;
   left: 4px;
  transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
-}
-
-input:checked + label {
-  background: #FFBD07;
 }
 
 input:checked + label:after {

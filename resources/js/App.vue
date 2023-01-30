@@ -1,12 +1,14 @@
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
+import DarkMode from './components/DarkMode.vue'
 
 export default {
     name: "App",
     components:{
         Header,
         Footer,
+        DarkMode
     }
 }
 </script>
