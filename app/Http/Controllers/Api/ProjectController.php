@@ -38,4 +38,21 @@ class ProjectController extends Controller
 
         return response()->json($project);
     }
+
+    public function search()
+    {
+        $string = $_GET['tosearch'];
+
+        $projects = Project::where('name', 'like', "%$string%")->with(['type', 'technologies'])->get();
+
+        foreach ($projects as $project) {
+            if ($project->cover_image) {
+                $project->cover_image = url("storage/" . $project->cover_image);
+            } else {
+                $project->cover_image = url("storage/uploads/noimage.jpeg");
+            }
+        }
+
+        return response()->json(compact('projects'));
+    }
 }
