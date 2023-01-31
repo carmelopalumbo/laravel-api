@@ -65,7 +65,7 @@ export default {
 @import '../../scss/partials/vars.scss';
 
     .search-box{
-        width: 80%;
+        width: 70%;
         margin: 0 auto;
         span{
             cursor: pointer;
