@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Lead;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -34,7 +35,7 @@ class NewContact extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Nuovo Contatto',
+            subject: 'RICHIESTA #N' . Lead::count('message'),
             replyTo: $this->lead->email
         );
     }

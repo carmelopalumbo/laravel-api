@@ -1,6 +1,46 @@
 <script>
+import axios from 'axios';
+
 export default {
-    name: "Contacts"
+    name: "Contacts",
+
+    data(){
+        return{
+            name: '',
+            email: '',
+            message: '',
+            errors: {},
+            isLoading: false,
+            showForm: true
+        }
+    },
+
+    methods: {
+        sendMail(){
+            this.isLoading = true;
+            const data = {
+                name: this.name,
+                email: this.email,
+                message: this.message
+            }
+
+            axios.post('http://127.0.0.1:8000/api/contacts', data)
+                .then(result => {
+                    //console.log(result.data);
+                    this.showForm = false;
+                    this.isLoading = false
+                    if(!result.data.success){
+                        this.errors = result.data.errors
+                    }else{
+                        //svuoto form
+                        this.name = '';
+                        this.email = '';
+                        this.message = '';
+                        this.errors = {};
+                    }
+                })
+        }
+    }
 }
 </script>
 
@@ -18,10 +58,10 @@ export default {
         </div>
     </div>
 
-    <div class="container animate__animated animate__backInLeft animate__delay-1s">
+    <div v-if="showForm" class="container animate__animated animate__backInLeft animate__delay-1s">
         <h3 class="text-center pt-5 pb-2">. . . E CONTATTAMI PER QUALSIASI RICHIESTA !</h3>
 
-        <form action="" class="w-50 m-auto py-4">
+        <form class="w-50 m-auto py-4" @submit.prevent="sendMail()">
 
             <div class="mb-4">
                 <label for="name" class="form-label">Nome</label>
@@ -38,9 +78,14 @@ export default {
                 <textarea class="form-control" placeholder="Messaggio . . ." v-model.trim="message" id="message" rows="3"></textarea>
             </div>
 
-            <button type="submit">INVIA</button>
+            <button :disabled="isLoading" type="submit">{{ isLoading ? 'STO INVIANDO . . .' : 'INVIA'}}</button>
         </form>
     </div>
+
+    <div v-else class="container">
+        <h5 class="text-center">RICHIESTA INVIATA, TI RISPONDERÒ IL PRIMA POSSIBILE, GRAZIE!</h5>
+    </div>
+
 </template>
 
 <style lang="scss" scoped>
@@ -107,6 +152,19 @@ export default {
                 font-size: .9rem;
                 font-weight: bold;
             }
+        }
+
+        h5{
+            color: $mark-text;
+            font-weight: bolder;
+            -webkit-text-stroke: 1px $background;
+            font-size: 1.3rem;
+            background-color: lighten($mark-text, 45%);
+            width: 55%;
+            margin: 30px auto;
+            padding: 20px 30px;
+            border-radius: 15px;
+            border: 3px solid $mark-text;
         }
     }
 </style>
