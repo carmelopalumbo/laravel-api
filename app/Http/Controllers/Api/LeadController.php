@@ -28,10 +28,10 @@ class LeadController extends Controller
                 'message' => 'required|min:10'
             ],
             [
-                'name.required' => 'Nome obbligatorio!',
+                'name.required' => 'Nome obbligatorio.',
                 'name.min' => 'Il nome deve avere almeno :min caratteri.',
                 'name.max' => 'Il nome non può avere più di :max caratteri.',
-                'email.required' => 'Email obbligatoria!',
+                'email.required' => 'Email obbligatoria.',
                 'email.email' => 'Inserisci una mail valida.',
                 'email.max' => 'Superati :max caratteri, mail non valida.',
                 'message.required' => 'Campo obbligatorio.',

@@ -26,10 +26,10 @@ export default {
 
             axios.post('http://127.0.0.1:8000/api/contacts', data)
                 .then(result => {
-                    //console.log(result.data);
-                    this.showForm = false;
+                    //console.log(data);
                     this.isLoading = false
-                    if(!result.data.success){
+                    if(!result.data.is_valid){
+                        //console.log(result.data.errors);
                         this.errors = result.data.errors
                     }else{
                         //svuoto form
@@ -37,6 +37,7 @@ export default {
                         this.email = '';
                         this.message = '';
                         this.errors = {};
+                        this.showForm = false;
                     }
                 })
         }
@@ -65,17 +66,20 @@ export default {
 
             <div class="mb-4">
                 <label for="name" class="form-label">Nome</label>
-                <input type="text" v-model.trim="name" class="form-control" id="name" placeholder="Inserisci il tuo nome . . . ">
+                <input :class="{'is-invalid' : errors.name}" type="text" v-model.trim="name" class="form-control" id="name" placeholder="Inserisci il tuo nome . . . ">
+                <p class="invalid-feedback" v-for="(error, index) in errors.name" :key="'name' + index">{{ error }}</p>
             </div>
 
             <div class="mb-4">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" v-model.trim="email" class="form-control" id="email" placeholder="Inserisci la tua email">
+                <input :class="{'is-invalid' : errors.email}" type="text" v-model.trim="email" class="form-control" id="email" placeholder="Inserisci la tua email . . . ">
+                <p class="invalid-feedback" v-for="(error, index) in errors.email" :key="'name' + index">{{ error }}</p>
             </div>
 
             <div class="mb-4">
                 <label for="message" class="form-label">Messaggio</label>
-                <textarea class="form-control" placeholder="Messaggio . . ." v-model.trim="message" id="message" rows="3"></textarea>
+                <textarea :class="{'is-invalid' : errors.message}" class="form-control" placeholder="Messaggio . . ." v-model.trim="message" id="message" rows="3"></textarea>
+                <p class="invalid-feedback" v-for="(error, index) in errors.message" :key="'name' + index">{{ error }}</p>
             </div>
 
             <button :disabled="isLoading" type="submit">{{ isLoading ? 'STO INVIANDO . . .' : 'INVIA'}}</button>
@@ -165,6 +169,15 @@ export default {
             padding: 20px 30px;
             border-radius: 15px;
             border: 3px solid $mark-text;
+        }
+
+        .is-invalid{
+            border: 1px solid red;
+        }
+
+        .invalid-feedback{
+            padding-left: 5px;
+            font-style: italic;
         }
     }
 </style>
