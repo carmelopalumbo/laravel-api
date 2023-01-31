@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,6 @@ Route::namespace('api')
         Route::get('/typesearch', [ProjectController::class, 'typeSearch']);
         Route::get('/detail/{slug}', [ProjectController::class, 'show']);
     });
+
+//rotta per invio mail
+Route::post('/contacts', [LeadController::class, 'store']);

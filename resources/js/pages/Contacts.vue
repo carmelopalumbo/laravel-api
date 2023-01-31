@@ -17,6 +17,30 @@ export default {
                 <a target="_blank" href="#"><i class="fa-brands fa-linkedin"></i></a>
         </div>
     </div>
+
+    <div class="container animate__animated animate__backInLeft animate__delay-1s">
+        <h3 class="text-center pt-5 pb-2">. . . E CONTATTAMI PER QUALSIASI RICHIESTA !</h3>
+
+        <form action="" class="w-50 m-auto py-4">
+
+            <div class="mb-4">
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" v-model.trim="name" class="form-control" id="name" placeholder="Inserisci il tuo nome . . . ">
+            </div>
+
+            <div class="mb-4">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" v-model.trim="email" class="form-control" id="email" placeholder="Inserisci la tua email">
+            </div>
+
+            <div class="mb-4">
+                <label for="message" class="form-label">Messaggio</label>
+                <textarea class="form-control" placeholder="Messaggio . . ." v-model.trim="message" id="message" rows="3"></textarea>
+            </div>
+
+            <button type="submit">INVIA</button>
+        </form>
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -50,6 +74,38 @@ export default {
                 transform: translate(-50%, -50%);
                 color: $mark-text;
                 -webkit-text-stroke: .5px white;
+            }
+        }
+
+        form{
+            button{
+                display: block;
+                margin: 10px auto;
+                background-color: transparent;
+                color: $mark-text;
+                border: 2px solid $mark-text;
+                padding: 5px 18px;
+                font-weight: bold;
+                border-radius: 5px;
+            }
+
+            input, textarea{
+                background-color: transparent;
+                border: 1px solid $mark-text;
+                color: whitesmoke;
+                &::placeholder{
+                    font-style: italic;
+                    font-weight: lighter;
+                }
+                &:focus{
+                    box-shadow: none;
+                }
+            }
+
+            label{
+                padding-left: 5px;
+                font-size: .9rem;
+                font-weight: bold;
             }
         }
     }

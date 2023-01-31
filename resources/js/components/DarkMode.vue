@@ -77,6 +77,10 @@ body[data-theme='dark'] {
   .client{
      color: $background;
   }
+
+  input, textarea{
+        color: #202124 !important;
+    }
 }
 
 input[type=checkbox] {
@@ -85,7 +89,26 @@ input[type=checkbox] {
   visibility: hidden;
 }
 
-label {
+input:checked + label:after {
+  left: calc(100% - 5px);
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+body.transition,
+body.transition *,
+body.transition *:before,
+body.transition *:after {
+  transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 420ms!important;
+  transition-delay: 0!important;
+}
+</style>
+
+<style scoped>
+    label {
   cursor: pointer;
   text-indent: -9999px;
   width: 55px;
@@ -113,22 +136,5 @@ label:after {
   top: 5px;
   left: 4px;
  transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
-}
-
-input:checked + label:after {
-  left: calc(100% - 5px);
-  -webkit-transform: translateX(-100%);
-  -moz-transform: translateX(-100%);
-  -ms-transform: translateX(-100%);
-  -o-transform: translateX(-100%);
-  transform: translateX(-100%);
-}
-
-body.transition,
-body.transition *,
-body.transition *:before,
-body.transition *:after {
-  transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 420ms!important;
-  transition-delay: 0!important;
 }
 </style>
